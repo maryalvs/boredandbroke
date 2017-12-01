@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-ro
 // import './index.css';
 import PropTypes from 'prop-types';
 import Homepage from './components/Homepage/Homepage.js';
-import LoginCreateAccount from './components/Homepage/LoginCreateAccount.js';
-import SavedActivities from './components/Homepage/SavedActivities.js';
-import Settings from './components/Homepage/Settings.js';
+import LoginCreateAccount from './components/LoginCreateAccount/LoginCreateAccount.js';
+import SavedActivities from './components/SavedActivities/SavedActivities.js';
+import Settings from './components/Settings/Settings.js';
 import Loading from './components/Homepage/Loading.js';
 
 import { Provider } from 'react-redux';

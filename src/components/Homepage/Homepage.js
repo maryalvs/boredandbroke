@@ -1,13 +1,12 @@
 import React from 'react';
 import $ from 'jquery';
-// import * as mongo from './backend/mongo.js';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import Button from 'react-bootstrap/lib/Button';
-import eventExample from './eventExample.png';
-import logo_black from './images/logo-black.png';
-import NavigationBar from './NavigationBar.js';
-import logo_offwhite from './images/logo-offwhite.png';
+import eventExample from '../eventExample.png';
+import logo_black from '../images/logo-black.png';
+import NavigationBar from '../NavigationBar/NavigationBar.js';
+import logo_offwhite from '../images/logo-offwhite.png';
 import HomepageSettings from './HomepageSettings.js';
 import SingleActivityModal from './SingleActivityModal.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
@@ -83,7 +82,6 @@ class Homepage extends React.Component {
   }
 
   componentDidMount() {
-    // mongo.connect();
     this.Homepage();
   }
 
@@ -133,7 +131,6 @@ class Homepage extends React.Component {
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
                     <SingleActivityModal />
-                    window.activityRetriever.retrieve();
                 </div>
                 <div className={ classes.element }>
                     <img src={eventExample} className={ classes.envelopeImage } height='100px' />

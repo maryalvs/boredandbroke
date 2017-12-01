@@ -4,9 +4,9 @@ import injectSheet from 'react-jss';
 // import Carousel from 'react-bootstrap/lib/Carousel';
 import Button from 'react-bootstrap/lib/Button';
 import { Form, FormGroup, ControlLabel, FormControl, Col, Checkbox } from 'react-bootstrap'
-import eventExample from './eventExample.png';
-import NavigationBar from './NavigationBar.js';
-import logo_offwhite from './images/logo-offwhite.png';
+import eventExample from '../eventExample.png';
+import NavigationBar from '../NavigationBar/NavigationBar.js';
+import logo_offwhite from '../images/logo-offwhite.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,

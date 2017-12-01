@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
 import {Form, FormGroup, ControlLabel, FormControl, Col, Checkbox} from 'react-bootstrap'
 import LoginButton from './LoginButton.js'
-import logoOffWhite from './images/logo-offwhite.png'
+import logoOffWhite from '../images/logo-offwhite.png'
 
 const propTypes = {
     classes: PropTypes.object.isRequired,

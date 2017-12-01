@@ -5,8 +5,8 @@ import classNames from 'classnames';
 import Carousel from 'react-bootstrap/lib/Carousel';
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
-import eventExample from './eventExample.png';
-import logo_black from './images/logo-black.png';
+import eventExample from '../eventExample.png';
+import logo_black from '../images/logo-black.png';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
