@@ -76,7 +76,6 @@ class BoredAndBroke extends React.Component {
     }
   }
 
-
 BoredAndBroke.propTypes = propTypes;
 
 ReactDOM.render(
