@@ -80,7 +80,9 @@ BoredAndBroke.propTypes = propTypes;
 
 ReactDOM.render(
   <Provider store={store}>
-    <Routes />
+    <BoredAndBroke
+      classes={styles.main}
+    />
   </Provider>,
   document.getElementById('root')
 );
