@@ -10,6 +10,7 @@ import LoginCreateAccount from './components/LoginCreateAccount/LoginCreateAccou
 import SavedActivities from './components/SavedActivities/SavedActivities.js';
 import Settings from './components/Settings/Settings.js';
 import Loading from './components/Homepage/Loading.js';
+import App from './containers/AppContainer';
 
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -54,6 +55,7 @@ class BoredAndBroke extends React.Component {
          <Router>
              <div>
                  <ul>
+
                      <li><Link to="/Homepage">Homepage</Link></li>
                      <li><Link to="/SavedActivities">SavedActivities</Link></li>
                      <li><Link to="/Settings">Settings</Link></li>
@@ -61,9 +63,7 @@ class BoredAndBroke extends React.Component {
                  </ul>
 
                  <Switch>
-                     <Route exact path="/" render={() => (
-                         <LoginCreateAccount/>
-                     )}/>
+                     <Route exact path="/" component={App} />
                      <Route path="/Homepage" component={Homepage}/>
                      <Route path="/SavedActivities" component={SavedActivities}/>
                      <Route path="/Settings" component={Settings}/>
