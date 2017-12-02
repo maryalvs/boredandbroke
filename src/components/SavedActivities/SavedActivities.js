@@ -8,6 +8,7 @@ import eventExample from '../eventExample.png';
 // import logo from './logo.png';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
 import logo_offwhite from '../images/logo-offwhite.png';
+import Activity from '../Activity/Activity.js';
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -17,8 +18,6 @@ const styles = {
     main: {
         backgroundColor: '#2C3E50',
         textAlign: 'center',
-        height: '900px',
-        // height: '100%',
     },
     navBar: {
         display: 'flex',
@@ -33,24 +32,26 @@ const styles = {
         marginBottom: '50px',
         color: '#ECF0F1',
     },
-    // formInput: {
-    //     width: '500px',
-    //     margin: 'auto',
-    //     color: '#ECF0F1',
-    // },
     row: {
         display: 'flex',
         marginBottom: '70px',
     },
     element: {
-        // border: '1px solid white',
         marginLeft: '80px',
         marginRight: '80px',
-        // width: '20px',
-        // height: '20px',
 
     },
 };
+
+// from past:
+// <div className={ classes.element }>
+//     <img src={eventExample} className={ classes.envelopeImage } height='100px' />
+//     <SingleActivityModal
+//           savedAlready={ false }
+//     >
+//     </SingleActivityModal>
+// </div>
+
 
 class SavedActivities extends React.Component {
   render() {
@@ -62,32 +63,16 @@ class SavedActivities extends React.Component {
             <span>Here are the activities you have saved so far:</span>
         </div>
           <div className={ classes.row }>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
+            <Activity />
+            <Activity />
+            <Activity />
+            <Activity />
           </div>
           <div className={ classes.row }>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
-              <div className={ classes.element }>
-                  <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-              </div>
+              <Activity />
+              <Activity />
+              <Activity />
+              <Activity />
           </div>
        </div>
     );

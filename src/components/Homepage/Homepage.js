@@ -8,7 +8,8 @@ import logo_black from '../images/logo-black.png';
 import NavigationBar from '../NavigationBar/NavigationBar.js';
 import logo_offwhite from '../images/logo-offwhite.png';
 import HomepageSettings from './HomepageSettings.js';
-import SingleActivityModal from './SingleActivityModal.js';
+import SingleActivityModal from '../SingleActivityModal/SingleActivityModal.js';
+import Activity from '../Activity/Activity.js';
 // import LoginCreateAccount from './LoginCreateAccount.js';
 // import SavedActivities from './SavedActivities.js';
 // import Settings from './Settings.js';
@@ -22,17 +23,14 @@ const styles = {
     main: {
         backgroundColor: '#ECF0F1',
         textAlign: 'center',
-        // height: '900px',
-        // height: '100%',
     },
     titleContainer: {
         paddingTop: '20px',
         paddingBottom: '20px',
     },
     title: {
-        color: '#ECF0F1',
-        // fontWeight: '500',
-        fontSize: '24px',
+        color: '#2C3E50',
+        fontSize: '36px',
     },
     logo_offwhite: {
         paddingLeft: '10px',
@@ -59,19 +57,16 @@ const styles = {
         color: '#ECF0F1',
     },
     resultsContainer: {
-        paddingTop: '20px',
+        padding: '25px',
         // justifyContent: 'center',
     },
     row: {
         display: 'flex',
-        marginBottom: '70px',
+        marginBottom: '10px',
     },
     element: {
         marginLeft: '80px',
         marginRight: '80px',
-    },
-    space: {
-        marginBottom: '100px',
     },
 };
 
@@ -86,6 +81,8 @@ class Homepage extends React.Component {
   }
 
   Homepage() {
+    // For demo.
+
     // Eventually we will use this function to load the activities.
     // this.setState({ activities: database.getFutureActivities() });
   }
@@ -124,67 +121,22 @@ class Homepage extends React.Component {
             <HomepageSettings />
         </div>
         <div className={ classes.titleContainer }>
-            <span className={ classes.title }>activities we found for you:</span>
+            <span className={ classes.title }>Your Activity Feed</span>
         </div>
         <div className={ classes.resultsContainer }>
             <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
+
+                <Activity />
+                <Activity />
+                <Activity />
+                <Activity />
             </div>
             <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
+                <Activity />
+                <Activity />
+                <Activity />
+                <Activity />
             </div>
-            <div className={ classes.row }>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-                <div className={ classes.element }>
-                    <img src={eventExample} className={ classes.envelopeImage } height='100px' />
-                    <SingleActivityModal />
-                </div>
-            </div>
-        </div>
-        <div className={ classes.space } />
-        <div>
-            <Button bastyle="primary" bsSize="large">See More</Button>
         </div>
       </div>
     );
