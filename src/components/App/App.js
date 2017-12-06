@@ -23,7 +23,7 @@ class App extends Component {
         <button onClick={this.props.actions.expressTest}>Test if Express is working</button>
         <br />
         <br />
-        <button onClick={this.props.actions.dbTest}>Test if Express and Sequelize are working</button>
+        <button onClick={this.props.actions.getActivities}>Test if Express and Sequelize are working</button>
         <div style={{ padding: '30px' }}>{this.props.results}</div>
       </div>
     );

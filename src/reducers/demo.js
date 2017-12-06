@@ -1,4 +1,4 @@
-import { EXPRESS_TEST_RESULTS, DB_TEST_RESULTS, EXPRESS_TEST_ERROR, DB_TEST_ERROR } from '../actions';
+import { EXPRESS_TEST_RESULTS, DB_TEST_RESULTS, EXPRESS_TEST_ERROR, DB_TEST_ERROR, GET_ACTIVITIES_RESULTS, GET_ACTIVITIES_ERROR } from '../actions';
 
 const initialState = {
     results: ''
@@ -10,8 +10,10 @@ const demo = (state = initialState, action) => {
             return { ...state, results: "Test Succeeded!  " + action.data }
         case DB_TEST_RESULTS:
             return { ...state, results: "Test Succeeded!  " + action.data }
-        case EXPRESS_TEST_ERROR:
-            return { ...state, results: "Test Failed!  " + action.data }
+        case GET_ACTIVITIES_RESULTS:
+            return { ...state, results: "Activity Test Succeeded!  " + action.data }
+        case GET_ACTIVITIES_ERROR:
+            return { ...state, results: "Activity Test Failed!  " + action.data }
         case DB_TEST_ERROR:
             return { ...state, results: "Test Failed!  " + action.data }
         default:
