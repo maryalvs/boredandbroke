@@ -1,15 +1,14 @@
+/*global FB*/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Routes from './routes';
-import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
-// import injectSheet from 'react-jss';
-// import './index.css';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Homepage from './components/Homepage/Homepage.js';
-import LoginCreateAccount from './components/LoginCreateAccount/LoginCreateAccount.js';
-import SavedActivities from './components/SavedActivities/SavedActivities.js';
-import Settings from './components/Settings/Settings.js';
-import Loading from './components/Homepage/Loading.js';
+import Homepage from './components/Homepage.js';
+import LoginCreateAccount from './components/LoginCreateAccount.js';
+import SavedActivities from './components/SavedActivities.js';
+import Settings from './components/Settings.js';
+import Loading from './components/Loading.js';
+import injectSheet from 'react-jss';
 import App from './containers/AppContainer';
 
 import { Provider } from 'react-redux';
@@ -20,6 +19,7 @@ import rootReducer from './reducers';
 
 const middleware = applyMiddleware(thunk, createLogger());
 export const store = createStore(rootReducer, middleware);
+
 
 const propTypes = {
     classes: PropTypes.object.isRequired,
@@ -38,35 +38,67 @@ const styles = {
 class BoredAndBroke extends React.Component {
   render() {
     // const status = 'This is our project:';
-    const loggedIn = true;
-    const { classes } = this.props;
+    let loggedIn = true;
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId            : '1960748417506782',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v2.11'
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+     function checkStatus() {
+       FB.getLoginStatus(function(response) {
+           alert("checked login status");
+           if (response.status === 'connected') {
+             loggedIn = true;
+           }
+         });
+     }
+
+    const PrivateRoute = ({ component: Component, ...rest }) => (
+      <Route {...rest} render={props => (
+        loggedIn ? (
+          <Component {...props}/>
+        ) : (
+          <Redirect to={{
+            pathname: '/LoginCreateAccount'
+          }}/>
+        )
+      )}/>
+    )
     return (
-
-// note: may not need the <Switch> to wrap the route below
-// <Route exact path="/" render={() => (
-//   loggedIn ? (
-//     <Redirect to="/Homepage"/>
-//   ) : (
-//     <Redirect to="/LoginCreateAccount"/>
-//   )
-// )}/>
-
-
          <Router>
              <div>
                  <Switch>
-                     <Route exact path="/" component={App} />
-                     <Route path="/Homepage" component={Homepage}/>
-                     <Route path="/SavedActivities" component={SavedActivities}/>
-                     <Route path="/Settings" component={Settings}/>
+                     <Route exact path="/" render={() => (
+                         <LoginCreateAccount/>
+                     )}/>
+                     <PrivateRoute path="/Homepage" component={Homepage}/>
+                     <PrivateRoute path="/SavedActivities" component={SavedActivities}/>
+                     <PrivateRoute path="/Settings" component={Settings}/>
                      <Route path="/LoginCreateAccount" component={LoginCreateAccount}/>
-                     <Route path="/Loading" component={Loading}/>
+                     <PrivateRoute path="/Loading" component={Loading}/>
+
+                     <Route path="/DemoTest" component={App}/>
+
                 </Switch>
             </div>
          </Router>
       );
     }
   }
+
+
 
 BoredAndBroke.propTypes = propTypes;
 
